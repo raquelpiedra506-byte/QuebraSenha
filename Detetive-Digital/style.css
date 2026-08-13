@@ -1,10 +1,30 @@
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
+*{
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    align-items: center;
+}
+body{
+    background-image: url("https://i.pinimg.com/originals/01/40/cb/0140cbe44dae11035a7e73cffa930133.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #064158;
+    padding: 10px;
+    border-bottom: 3px solid #181821;
+}
+header h1{
+    font-size: 40px;
+    color: #ffffff;
+    margin:20px;
+}
+header a img{
+    margin: 10px;
+    border-radius: 25%;
+    border: 2px solid #181821;
+    box-shadow: 0px 0px 10px #181821;
 }
