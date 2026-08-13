@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<HTML>
-    <Head>
-        <meta charset="pt-br">
+<html>
+    <head>
+        <meta charset="UTF-8" content="pt-BR">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Quebra senha.</title>
-        
-    </Head>
-    <Body>
-        <Header>
-            <img src="">
-            <h1>Quebra senha.</h1>
-        </Header>
+        <title>Deep Word</title>
+        <link rel="stylesheet" href="style.css">
+        <link script src="script.js" defer></script>
+    </head>
+    <body>
+        <!--Logo do jogo-->
+        <header id="cabecalho">
+            <img src="https://i.pinimg.com/originals/28/bc/44/28bc44b5eed41b8a0b7829231bd684ad.gif" alt="Imagem de um detetive digital" width="100px" height="100px">
+            <h1>Deep Word</h1>
+
+            <!--Menu de navegação (É pra voltar pro inicio)-->
+            <nav>
+                <a href="index.html">Início</a>
+            </nav>
+        </header>
+
+
         <main>
-            <div conteudo_princpal>
-                <h2>Login</h2>
-                <P>Nome de usuário: <input type="text" name="username"></P>
-                <P>Senha: <input type="password" name="password"></P>
-                <button type="submit">Entrar</button>
-            </div>
+            <!--Quadrado que tem as coisas do jogo-->
+            <section id="conteudo_principal">
+                <!--Botão de dica-->
+                <aside>
+                    <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg" alt="Imagem de um detetive digital" width="100px" height="100px"></button>
+                </aside>
+                <!--Caixa principal com o jogo em si-->
+                <article>
+                    <div id="dificuldade">
+                        <h2>Nível: Fácil</h2>
+                    </div>
+                    <p>Tentativas: <span id="tentativa">0</span></p>
+                    <p>Nome de usuário: <input type="text" name="username"></p>
+                    <p id="senha">Senha: <input type="password" name="password" required></p>
+                
+                    <button type="button" onclick="checkPassword()">Entrar</button>
+                </article>
+
+                <!-- Histórico das tentativas -->
+                <div id="historico">
+                    <h3>Histórico das tentativas:</h3>
+                    <p id="tentativas_anteriores"></p>
+                </div>
+            </section>
         </main>
-
-
-    </Body>
-
-
-</HTML>
+    </body>
+</html>
