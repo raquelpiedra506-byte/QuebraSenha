@@ -30,13 +30,13 @@
                 <!--Caixa principal com o jogo em si-->
                 <article>
                     <div id="dificuldade">
-                        <h2>Nível: Fácil</h2>
+                        <h2>Nível: <p id="nivel"></p></h2>
                     </div>
                     <p>Tentativas: <span id="tentativa">0</span></p>
                     <p>Nome de usuário: <input type="text" name="username"></p>
                     <p id="senha">Senha: <input type="password" name="password" required></p>
                 
-                    <button type="button" onclick="checkPassword()">Entrar</button>
+                    <button type="button" id="botaoentrar" onclick="checkPassword()">Entrar</button>
                 </article>
 
                 <!-- Histórico das tentativas -->
