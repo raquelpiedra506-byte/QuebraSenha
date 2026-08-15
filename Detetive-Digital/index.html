@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" content="pt-BR">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Deep Word</title>
         <link rel="stylesheet" href="style.css">
-        <link script src="script.js" defer></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <!--Logo do jogo-->
         <header>
-            <img src="https://i.pinimg.com/originals/28/bc/44/28bc44b5eed41b8a0b7829231bd684ad.gif" alt="Imagem de um detetive digital" width="100px" height="100px">
+            <img src="https://i.pinimg.com/originals/28/bc/44/28bc44b5eed41b8a0b7829231bd684ad.gif"
+            alt="Imagem de um detetive digital" width="100px" height="100px">
             <h1>Deep Word</h1>
 
             <!--Menu de navegação (É pra voltar pro inicio)-->
             <nav>
-                <a href="index.html" onclick="history.back()"><img src="https://i.pinimg.com/736x/9a/c2/9f/9ac29fc202d08ba120dcbecf5a0784ed.jpg" width="40px"></a>
+                <a href="inicial.html"><img src="https://i.pinimg.com/736x/9a/c2/9f/9ac29fc202d08ba120dcbecf5a0784ed.jpg" width="40px"></a>
             </nav>
         </header>
 
-
-        <main class="maingame">
+        <main>
             <!--Quadrado que tem as coisas do jogo-->
+<<<<<<< Updated upstream
             <section id="conteudo_principal" class="jogo">
+=======
+            <section id="conteudo_principal">
+
+>>>>>>> Stashed changes
                 <!--Botão de dica-->
                 <aside>
-                    <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg" alt="Imagem de um detetive digital" width="100px" height="100px"></button>
+                    <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
+                    alt="Imagem de um detetive digital" width="100px" height="100px"></button>
                 </aside>
+
                 <!--Caixa principal com o jogo em si-->
+<<<<<<< Updated upstream
                 <article class="artic">
                     <div id="dificuldade">
                         <h2>Nível: <p id="nivel"></p></h2>
@@ -36,8 +44,15 @@
                     <br>
                     <p>Nome de usuário:</p> <input type="text" name="username"> <br>
                     <p id="senha">Senha: <br><input type="password" name="password" required></p>
+=======
+                <article>                    
+                    <h2 id="nivel">Nível: Fácil</h2>                  
+                    <p>Tentativas: <span id="tentativa">5</span></p>
+                    <p>Nome de usuário: <input type="text" name="username"></p>
+                    <p id="senha">Senha: <input type="password" name="password" required></p>
+>>>>>>> Stashed changes
                 
-                    <button type="button" id="botaoentrar" onclick="checkPassword()">Entrar</button>
+                    <button type="button" onclick="checkPassword()">Entrar</button>
                 </article>
 
                 <!-- Histórico das tentativas -->
@@ -45,6 +60,7 @@
                     <h3>Histórico das tentativas:</h3>
                     <p id="tentativas_anteriores"></p>
                 </div>
+
             </section>
         </main>
     </body>
