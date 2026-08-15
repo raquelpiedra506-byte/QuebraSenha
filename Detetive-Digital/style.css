@@ -4,7 +4,7 @@
     align-items: center;
 }
 body{
-    color: #8a8888;
+    color: #a6b5be;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -14,10 +14,56 @@ body{
     background-repeat: no-repeat;
 
 
-    display: flex;
+    display: row;
     justify-content: center;
     align-items: center;
     height: 90vh;
+}
+
+.titulos {
+    color: #ffffff;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.como-jogar {
+    padding: 20px;
+    background-color: #0641585b;
+    display: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.como-jogar p {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.modos {
+    padding: 20px;
+    background-color: #06415842;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.modos button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 150px;
+    height: 150px;
+    background-color: #9191999d;
+    color: #ffffff;
+    border: solid 2px #181821;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .maingame {
@@ -31,6 +77,44 @@ body{
     align-items: center;
     height: 90vh;
 }
+
+.jogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    background-color: #3b4a503f;
+    padding: 20px;
+}
+
+.artic {
+    display: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    margin: 20px;
+    background-color: #3b4a504f;
+    padding: 20px;
+}
+.artic p {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 10px;
+}
+
+.hist {
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    gap: 20px;
+    margin: 20px;
+    min-height: 200px;
+    background-color: #54585a8e;
+    padding: 20px;
+}
+
 header{
     display: flex;
     justify-content: space-between;
