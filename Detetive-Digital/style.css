@@ -17,7 +17,7 @@ body{
     display: row;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 .titulos {
@@ -36,6 +36,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 20px;
+    text-align: center;
 }
 
 .como-jogar p {
@@ -75,7 +76,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 .jogo {

@@ -20,14 +20,9 @@
             </nav>
         </header>
 
-        <main>
+        <main class="maingame">
             <!--Quadrado que tem as coisas do jogo-->
-<<<<<<< Updated upstream
             <section id="conteudo_principal" class="jogo">
-=======
-            <section id="conteudo_principal">
-
->>>>>>> Stashed changes
                 <!--Botão de dica-->
                 <aside>
                     <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
@@ -35,31 +30,30 @@
                 </aside>
 
                 <!--Caixa principal com o jogo em si-->
-<<<<<<< Updated upstream
                 <article class="artic">
                     <div id="dificuldade">
-                        <h2>Nível: <p id="nivel"></p></h2>
-                    </div>
-                    <p>Tentativas: <span id="tentativa">0</span></p>
-                    <br>
-                    <p>Nome de usuário:</p> <input type="text" name="username"> <br>
-                    <p id="senha">Senha: <br><input type="password" name="password" required></p>
-=======
-                <article>                    
                     <h2 id="nivel">Nível: Fácil</h2>                  
-                    <p>Tentativas: <span id="tentativa">5</span></p>
+                    </div>
+                    <p>Tentativas: <span id="tentativa"></span></p>
+                    <br>
                     <p>Nome de usuário: <input type="text" name="username"></p>
-                    <p id="senha">Senha: <input type="password" name="password" required></p>
->>>>>>> Stashed changes
+                    <br>
+                    <p id="senha">Senha: <br> <input type="password" name="password" required></p>
                 
                     <button type="button" onclick="checkPassword()">Entrar</button>
+
+                    <div id="resultado"></div>
                 </article>
 
                 <!-- Histórico das tentativas -->
                 <div id="historico" class="hist">
                     <h3>Histórico das tentativas:</h3>
-                    <p id="tentativas_anteriores"></p>
+                    <ul id="tentativas_anteriores"></ul>
                 </div>
+
+                <article>
+                    <p id="dica"></p>
+                </article>>
 
             </section>
         </main>

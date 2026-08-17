@@ -1,73 +1,36 @@
-const parametros = new URLSearchParams(window.location.search);
-
-const dificuldadeSelecionada =
-    parametros.get("dificuldade") || "facil";
-
-const nivel = dificuldades[dificuldadeSelecionada];
-
-let senha = nivel.palavras[
-    Math.floor(Math.random() * nivel.palavras.length)
-];
-
-let tentativas = nivel.tentativas;
 
 const dificuldades = {
 
     facil: {
         tentativas: 8,
         palavras: [
-            "html", "head",
-            "body", "div",
-            "dom", "img", 
-            "title", "link",
-            "margin", "padding",
-            "let", "const",
-            "if", "else",
+            "html", "head","body", "div","dom", 
+            "img", "title", "link","margin", 
+            "padding", "let", "const","if", "else",
         ]
     },
 
     medio: {
         tentativas: 6,
         palavras: [
-            "header", "footer",
-            "main", "section",
-            "article", "aside",
-            "nav", "form",
-            "input", "button",
-            "switch", "case",
-            "break", "return",
+            "header", "footer","main", "section","article",
+            "aside","nav", "form","input", "button",
+            "switch", "case","break", "return",
         ]
     },
 
-    dificil: {
-        tentativas: 5,
-        palavras: [
-            "devtools", "document",
-            "querySelector", "addEventListener",
-            "while", "for",
-            "consolelog", "preventDefault",
-            "background", "justifyContent",
-        ]
-    }
+//     dificil: {
+//         tentativas: 5,
+//         palavras: [
+//             "devtools", "document","querySelector",
+//             "addEventListener","while", "for","consolelog",
+//             "preventDefault","background", "justifyContent",
+//         ]
+//     }
+
 };
 
-let nivel = null;
-    switch (dificuldadeSelecionada) {
-        case "facil":
-            nivel = dificuldades.facil;
-            break;
-        case "medio":
-            nivel = dificuldades.medio;
-            break;
-        case "dificil":
-            nivel = dificuldades.dificil;
-            break;
-        default:
-            nivel = null;
-            break;
-    };
-
-    const dicas = {
+const dicas = {
     html: "É a base de todas as páginas web.",
     head: "É a seção de metadados de uma página web.",
     body: "É a seção de conteúdo visível de uma página web.",
@@ -100,23 +63,59 @@ let nivel = null;
     
 };
 
-const dificuldadeSelecionada = "facil";
-const nivel = dificuldades[dificuldadeSelecionada];
 
-let senha = nivel.palavras[
-    Math.floor(Math.random() * nivel.palavras.length)
-];
 
-let tentativas = nivel.tentativas;
-let senha = nivel.palavras[ Math.floor(Math.random() * nivel.palavras.length)];
-let tentativas = 5;
-let limiteTentativas = 5;
+const parametros = new URLSearchParams(window.location.search);
+
+const dificuldadeSelecionada =
+    parametros.get("dificuldade") || "facil";
+
+const nivelConfig = 
+    dificuldades[dificuldadeSelecionada] || dificuldades.facil;
+
+
+
+let tentativas = nivelConfig.tentativas;
+
+let nivelConfig = null;
+
+    switch (dificuldadeSelecionada) {
+        case "facil":
+            nivelConfig = dificuldades.facil;
+            break;
+        case "medio":
+            nivelConfig = dificuldades.medio;
+            break;
+//         case "dificil":
+//             nivelConfig = dificuldades.dificil;
+//             break;
+        default:
+            nivelConfig = dificuldades.facil;
+            break;
+    };
+
+
+
+
+let senha = nivelConfig.palavras[Math.floor(Math.random() * nivelConfig.palavras.length)];
+
+let tentativas = nivelConfig.tentativas;
+
+let limiteTentativas = nivelConfig.tentativas;
+
+
+
 
 const campoSenha = document.querySelector('input[name="password"]');
+
 const campoUsuario = document.querySelector('input[name="username"]');
+
 const contadorTentativas = document.getElementById("tentativa");
+
 const historico = document.getElementById("tentativas_anteriores");
-const nivel = document.getElementById("nivel");
+
+const elementonivel = document.getElementById("nivel");
+
 
 document.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
@@ -124,5 +123,42 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+
 function checkPassword() {
-    const tentativa = campoSenha.value.toLowerCase().trim();}
+    if (!campoSenha) return;
+    
+    const tentativa = campoSenha.value.toLowerCase().trim();
+    const elementoResultado = document.getElementById("resultado"); // Elemento que receberá o innerHTML
+
+    if (tentativa === "") return;
+
+    if (tentativa === senha) {
+        elementoResultado.innerHTML = `
+            <div style="color: green; font-weight: bold;">
+                🎉 Parabéns! Você acertou a palavra secreta: <u>${senha}</u>!
+            </div>
+        `;
+        return;
+    }
+
+    tentativas--; 
+    
+    if (contadorTentativas) {
+        contadorTentativas.textContent = tentativas;
+    }
+
+    if (historico) {
+        historico.innerHTML += `<li>${tentativa} (Incorreto)</li>`;
+    }
+
+    if (tentativas <= 0) {
+        elementoResultado.innerHTML = `
+            <div style="color: red; font-weight: bold;">
+                💥 Fim de jogo! Suas tentativas acabaram.<br>
+                A palavra correta era: <strong>${senha}</strong>.
+            </div>
+        `;
+    } else {
+        campoSenha.value = "";
+    }
+}
