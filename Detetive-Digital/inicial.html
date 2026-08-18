@@ -1,56 +1,82 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quebra Senha</title>
+
+    <title>Deep Word</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
 
     <header id="cabecalho">
-            <img src="https://i.pinimg.com/originals/28/bc/44/28bc44b5eed41b8a0b7829231bd684ad.gif" alt="Imagem de um detetive digital" width="100px" height="100px">
-            <h1>Deep Word</h1>
+        <img
+            src="https://i.pinimg.com/originals/28/bc/44/28bc44b5eed41b8a0b7829231bd684ad.gif"
+            alt="Detetive digital" width="100" height="100">
+
+        <h1>Deep Word</h1>
     </header>
 
+
     <main class="mainhome">
+
+        <!-- INÍCIO -->
         <section class="comeco" id="comeco">
-            <button type="button" href="#como-jogar"> Primeira vez jogando ?</button>
+            <a href="#sobre-jogo" class="botao">
+                Primeira vez jogando?
+            </a>
         </section>
 
-        <article class="titulos">
-            <h1> Sobre o Jogo </h1>
+
+        <!-- SOBRE O JOGO -->
+        <article class="titulos" id="sobre-jogo">
+            <h2>Sobre o Jogo</h2>
         </article>
+
         <section class="como-jogar">
-            <p> O objetivo do jogo é descobrir a senha correta, voçe tera um número de tentativas limitadas, depende do modo de jogo selecionado. </p>
-            <p> A cada tentativa que voçe fizer, você receberá dicas de quais letras estão corretas e em qual posição elas se encontram. </p>
-            <p> Caso você acerte a senha, você ganhará o jogo, caso contrário, você perderá. </p>
-            <button type="button" href="#modos"> vamos jogar </button>
+            <p> O objetivo do jogo é descobrir a senha correta. Você terá um número limitado de tentativas, dependendo do modo de jogo selecionado. </p>
+            <p> A cada tentativa que você fizer, receberá dicas sobre quais letras estão corretas e em quais posições elas se encontram. </p>
+            <p> Caso você acerte a senha, ganhará o jogo. Caso contrário, perderá.</p>
+
+            <a href="#modos" class="botao">
+                Vamos jogar!
+            </a>
         </section>
 
-        
+
+        <!-- MODOS DE JOGO -->
         <article class="titulos">
-            <h1> Modos de Jogo </h1>
+            <h2>Modos de Jogo</h2>
         </article>
+
         <section class="modos" id="modos">
-            <button type="button">
-                <img src="https://i.pinimg.com/736x/9c/11/0d/9c110dd2c9ccc945b23cfda782dc07dd.jpg" alt="facil" width="100px" height="100px">
-                <br> Fácil
+
+            <button type="button" class="modo">
+                <img
+                    src="https://i.pinimg.com/736x/9c/11/0d/9c110dd2c9ccc945b23cfda782dc07dd.jpg"
+                    alt="Modo Fácil" width="100" height="100">
+                <span>Fácil</span>
             </button>
-            <br><br>
-            <button type="button">
-                <img src="https://i.pinimg.com/1200x/4e/c6/89/4ec689cfbb8868b0dfce4743e506b814.jpg" alt="medio" width="100px" height="100px">
-                <br> Médio
+
+
+            <button type="button" class="modo">
+                <img
+                    src="https://i.pinimg.com/1200x/4e/c6/89/4ec689cfbb8868b0dfce4743e506b814.jpg"
+                    alt="Modo Médio" width="100" height="100">
+                <span>Médio</span>
             </button>
-            <br><br>
-            <button type="button">
-                <img src="https://i.pinimg.com/736x/06/17/6c/06176c99ab6be1ea15dacdd70e611d40.jpg" alt="difícil" width="100px" height="100px">
-                <br> Difícil
+
+
+            <button type="button" class="modo">
+                <img
+                    src="https://i.pinimg.com/736x/06/17/6c/06176c99ab6be1ea15dacdd70e611d40.jpg"
+                    alt="Modo Difícil" width="100" height="100">
+                <span>Difícil</span>
             </button>
         </section>
-
     </main>
-    
 </body>
 </html>
