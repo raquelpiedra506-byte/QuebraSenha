@@ -27,18 +27,18 @@
                 <aside>
                     <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
                     alt="Imagem de um detetive digital" width="100px" height="100px"></button>
+                    
+                    <article>
+                        <p id="dica"></p>
+                    </article>
                 </aside>
 
                 <!--Caixa principal com o jogo em si-->
                 <article class="artic">
-                    <div id="dificuldade">
-                    <h2 id="nivel">Nível: Fácil</h2>                  
-                    </div>
+                    <h2>Descubra a senha</h2>                  
                     <p>Tentativas: <span id="tentativa"></span></p>
                     <br>
-                    <p>Nome de usuário: <input type="text" name="username"></p>
-                    <br>
-                    <p id="senha">Senha: <br> <input type="password" name="password" required></p>
+                    <p id="senha">Senha:<input type="text" name="password" placeholder="digite a senha" required></p>
                 
                     <button type="button" onclick="checkPassword()">Entrar</button>
 
@@ -50,10 +50,6 @@
                     <h3>Histórico das tentativas:</h3>
                     <ul id="tentativas_anteriores"></ul>
                 </div>
-
-                <article>
-                    <p id="dica"></p>
-                </article>
 
             </section>
         </main>

@@ -1,164 +1,189 @@
-
-const dificuldades = {
-
-    facil: {
-        tentativas: 8,
-        palavras: [
-            "html", "head","body", "div","dom", 
-            "img", "title", "link","margin", 
-            "padding", "let", "const","if", "else",
-        ]
-    },
-
-    medio: {
-        tentativas: 6,
-        palavras: [
-            "header", "footer","main", "section","article",
-            "aside","nav", "form","input", "button",
-            "switch", "case","break", "return",
-        ]
-    },
-
-//     dificil: {
-//         tentativas: 5,
-//         palavras: [
-//             "devtools", "document","querySelector",
-//             "addEventListener","while", "for","consolelog",
-//             "preventDefault","background", "justifyContent",
-//         ]
-//     }
-
-};
+const palavras = [
+    "html",
+    "head",
+    "body",
+    "div",
+    "dom",
+    "img",
+    "title",
+    "link",
+    "margin",
+    "padding",
+    "let",
+    "const",
+    "if",
+    "else"
+];
 
 const dicas = {
     html: "É a base de todas as páginas web.",
     head: "É a seção de metadados de uma página web.",
-    body: "É a seção de conteúdo visível de uma página web.",
-    div: "É um contêiner genérico para agrupar elementos.",
-    dom: "É a interface de programação para documentos HTML.",
-    img: "É um elemento de imagem em uma página web.",
-    title: "É o título de uma página web.",
-    link: "É um elemento que transfere para recursos externos.",
-    margin: "É a área externa de um elemento.",
-    padding: "É a área interna de um elemento.",
-    let: "É uma palavra-chave que pode ser mudada de valor.",
-    const: "É uma palavra-chave em que o valor não se altera.",
-    if: "Executa uma ação se uma condição for verdadeira.",
-    else: "Executa uma ação se uma condição for falsa.",
-
-    header: "Constitui a parte introdutoria de uma página.",
-    footer: "Integra a parte de encerramento de uma página.",
-    main: "Só pode ser utilizada uma vez por página.",
-    section: "Refere-se a uma propriedade de agrupamento de conteúdo.",  
-    article: "Se utilizada permite criar um bloco de conteúdo independente.",
-    aside: "Utilizada para criar um bloco de conteúdo complementar ao texto principal.",
-    nav: "Agrupamento de links no cabeçalho ou rodapé de uma página.",
-    form: "É um elemento que permite a entrada de dados do usuário.",
-    input: "É um elemento de entrada de dados.",
-    button: "Permite a interação do usuário com a página.",
-    switch: "Escolhe uma opção com base nas condições.",
-    case: "Define uma opção no switch.",
-    break: "Interrompe a execução de um loop ou switch.",
-    return: "Volta ao valor inicial de uma função.",
-    
+    body: "É a seção que contém o conteúdo da página.",
+    div: "É um contêiner usado para agrupar elementos.",
+    dom: "É a interface que permite ao JavaScript manipular o HTML.",
+    img: "É usada para colocar imagens em uma página.",
+    title: "É o título que aparece na aba do navegador.",
+    link: "É usado para conectar arquivos externos, como CSS.",
+    margin: "É o espaço externo de um elemento.",
+    padding: "É o espaço interno de um elemento.",
+    let: "É usada para declarar uma variável que pode mudar.",
+    const: "É usada para declarar uma variável que não será reatribuída.",
+    if: "Executa um código quando uma condição é verdadeira.",
+    else: "Executa um código quando uma condição é falsa."
 };
 
 
+// CONFIGURAÇÃO DO JOGO
 
-const parametros = new URLSearchParams(window.location.search);
+const limiteTentativas = 8;
 
-const dificuldadeSelecionada =
-    parametros.get("dificuldade") || "facil";
-
-const nivelConfig = 
-    dificuldades[dificuldadeSelecionada] || dificuldades.facil;
-
+let tentativas = limiteTentativas;
+let senha = palavras[Math.floor(Math.random() * palavras.length)];
+let jogoFinalizado = false;
 
 
-//let tentativas = nivelConfig.tentativas;
-
-//let nivelConfig = null;
-
-    switch (dificuldadeSelecionada) {
-        case "facil":
-            nivelConfig = dificuldades.facil;
-            break;
-        case "medio":
-            nivelConfig = dificuldades.medio;
-            break;
-//         case "dificil":
-//             nivelConfig = dificuldades.dificil;
-//             break;
-        default:
-            nivelConfig = dificuldades.facil;
-            break;
-    };
-
-
-
-
-let senha = nivelConfig.palavras[Math.floor(Math.random() * nivelConfig.palavras.length)];
-
-let tentativas = nivelConfig.tentativas;
-
-let limiteTentativas = nivelConfig.tentativas;
-
-
-
+// ELEMENTOS DO HTML
 
 const campoSenha = document.querySelector('input[name="password"]');
-
-const campoUsuario = document.querySelector('input[name="username"]');
-
 const contadorTentativas = document.getElementById("tentativa");
-
 const historico = document.getElementById("tentativas_anteriores");
+const resultado = document.getElementById("resultado");
+const elementoDica = document.getElementById("dica");
 
-const elementonivel = document.getElementById("nivel");
+// INICIAR JOGO
 
+contadorTentativas.textContent = tentativas;
 
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        checkPassword();
-    }
-});
-
+// VERIFICAR SENHA
 
 function checkPassword() {
-    if (!campoSenha) return;
-    
+    // Pega o que o jogador digitou
     const tentativa = campoSenha.value.toLowerCase().trim();
-    const elementoResultado = document.getElementById("resultado"); // Elemento que receberá o innerHTML
 
-    if (tentativa === "") return;
-
-    if (tentativa === senha) {
-        elementoResultado.innerHTML = `
-            <div style="color: green; font-weight: bold;">
-                🎉 Parabéns! Você acertou a palavra secreta: <u>${senha}</u>!
-            </div>
+    // Não permite campo vazio
+    if (tentativa === "") {
+        resultado.innerHTML = `
+            <p style="color: orange; font-weight: bold;">
+                ⚠️ Digite uma senha.
+            </p>
         `;
+        campoSenha.focus();
         return;
     }
 
-    tentativas--; 
-    
-    if (contadorTentativas) {
-        contadorTentativas.textContent = tentativas;
+    // SENHA CORRETA
+    if (tentativa === senha) {
+        resultado.innerHTML = `
+            <p style="color: green; font-weight: bold;">
+                🎉 Parabéns!
+                <br>
+                Você acertou a senha:
+                <strong>${senha}</strong>
+            </p>
+        `;
+        adicionarHistorico(tentativa, true);
+        jogoFinalizado = true;
+        campoSenha.disabled = true;
+        return;
     }
 
-    if (historico) {
-        historico.innerHTML += `<li>${tentativa} (Incorreto)</li>`;
-    }
+
+    // SENHA ERRADA
+
+    tentativas--;
+    contadorTentativas.textContent = tentativas;
+    adicionarHistorico(tentativa);
+
+    // ACABARAM AS TENTATIVAS
 
     if (tentativas <= 0) {
-        elementoResultado.innerHTML = `
-            <div style="color: red; font-weight: bold;">
-                💥 Fim de jogo! Suas tentativas acabaram.<br>
-                A palavra correta era: <strong>${senha}</strong>.
-            </div>
+
+        resultado.innerHTML = `
+            <p style="color: red; font-weight: bold;">
+                💥 Fim de jogo!
+                <br>
+                Você ficou sem tentativas.
+                <br><br>
+                A senha era:
+                <strong>${senha}</strong>
+            </p>
+        `;
+        jogoFinalizado = true;
+        campoSenha.disabled = true;
+        return;
+    }
+
+
+    // AINDA TEM TENTATIVAS
+
+    resultado.innerHTML = `
+        <p style="color: red;">
+            ❌ Senha incorreta!
+        </p>
+    `;
+    campoSenha.value = "";
+    campoSenha.focus();
+}
+
+// HISTÓRICO
+
+function adicionarHistorico(palavra, acertou) {
+    const item = document.createElement("li");
+    if (acertou) {
+        item.innerHTML = `
+            <strong style="color: green;">
+                ${palavra} - Correto! ✅
+            </strong>
         `;
     } else {
-        campoSenha.value = "";
+        item.innerHTML = `
+            ${palavra} - Incorreto ❌
+        `;
+    }
+
+    historico.appendChild(item);
+}
+
+
+// ===============================
+// SISTEMA DE DICA
+// ===============================
+
+function showHint() {
+
+    if (jogoFinalizado) {
+        return;
+    }
+
+
+    const dica = dicas[senha];
+
+
+    if (dica) {
+
+        elementoDica.innerHTML = `
+            💡 <strong>Dica:</strong> ${dica}
+        `;
+
+    } else {
+
+        elementoDica.innerHTML = `
+            💡 Tente descobrir a palavra!
+        `;
     }
 }
+
+
+// ===============================
+// ENTER PARA TENTAR
+// ===============================
+
+campoSenha.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        event.preventDefault();
+
+        checkPassword();
+    }
+});
