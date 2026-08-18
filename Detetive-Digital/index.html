@@ -25,11 +25,11 @@
             <section id="conteudo_principal" class="jogo">
                 <!--Botão de dica-->
                 <aside>
-                    <button type="button" onclick="showHint()"><p>Dica:</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
+                    <button class="dicaBut" type="button" onclick="showHint()"><p>Dica</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
                     alt="Imagem de um detetive digital" width="100px" height="100px"></button>
                     
                     <article>
-                        <p id="dica"></p>
+                        <p id="dica" class="dicaTxt"></p>
                     </article>
                 </aside>
 
@@ -48,6 +48,7 @@
                 <!-- Histórico das tentativas -->
                 <div id="historico" class="hist">
                     <h3>Histórico das tentativas:</h3>
+                    <br>
                     <ul id="tentativas_anteriores"></ul>
                 </div>
 
