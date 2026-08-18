@@ -75,9 +75,9 @@ const nivelConfig =
 
 
 
-let tentativas = nivelConfig.tentativas;
+//let tentativas = nivelConfig.tentativas;
 
-let nivelConfig = null;
+//let nivelConfig = null;
 
     switch (dificuldadeSelecionada) {
         case "facil":
