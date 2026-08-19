@@ -22,15 +22,19 @@
 
         <main class="maingame">
             <!--Quadrado que tem as coisas do jogo-->
-            <section id="conteudo_principal" class="jogo">
-                <!--Botão de dica-->
-                <aside>
+
+<aside class="asideDica">
                     <button class="dicaBut" type="button" onclick="showHint()"><p>Dica</p><img src="https://i.pinimg.com/736x/19/4b/cf/194bcf0fee0575f24a037b9b0073037e.jpg"
-                    alt="Imagem de um detetive digital" width="100px" height="100px"></button>
+                    alt="Imagem de um detetive digital" width="50px" height="50px"></button>
                     
                     <article>
                         <p id="dica" class="dicaTxt"></p>
                     </article>
+                </aside>
+            
+            <section id="conteudo_principal" class="jogo">
+                <!--Botão de dica-->
+               
                 </aside>
 
                 <!--Caixa principal com o jogo em si-->
@@ -38,9 +42,9 @@
                     <h2>Descubra a senha</h2>                  
                     <p>Tentativas: <span id="tentativa"></span></p>
                     <br>
-                    <p id="senha">Senha:<input type="text" name="password" placeholder="digite a senha" required></p>
+                    <p id="senha">Senha: <input  class="caixaSenha" type="text" name="password" placeholder="digite a senha" required></p>
                 
-                    <button type="button" onclick="checkPassword()">Entrar</button>
+                    <button class="entrar" type="button" onclick="checkPassword()">Entrar</button>
 
                     <div id="resultado"></div>
                 </article>
