@@ -62,10 +62,8 @@ function checkPassword() {
 
     // Não permite campo vazio
     if (tentativa === "") {
-        resultado.innerHTML = `
-            <p style="color: orange; font-weight: bold;">
-                ⚠️ Digite uma senha.
-            </p>
+        resultado.textContent = `
+            ⚠️ Digite uma senha.
         `;
         campoSenha.focus();
         return;
@@ -73,17 +71,15 @@ function checkPassword() {
 
     // SENHA CORRETA
     if (tentativa === senha) {
-        resultado.innerHTML = `
-            <p style="color: green; font-weight: bold;">
-                🎉 Parabéns!
-                <br>
-                Você acertou a senha:
-                <strong>${senha}</strong>
-            </p>
+        resultado.textContent = `
+            🎉 Parabéns!
+            Você acertou a senha:
+            ${senha}
         `;
         adicionarHistorico(tentativa, true);
         jogoFinalizado = true;
         campoSenha.disabled = true;
+        entrar.disabled = true;
         return;
     }
 
@@ -98,15 +94,11 @@ function checkPassword() {
 
     if (tentativas <= 0) {
 
-        resultado.innerHTML = `
-            <p style="color: red; font-weight: bold;">
+        resultado.textContent = `
                 💥 Fim de jogo!
-                <br>
                 Você ficou sem tentativas.
-                <br><br>
                 A senha era:
-                <strong>${senha}</strong>
-            </p>
+                ${senha}
         `;
         jogoFinalizado = true;
         campoSenha.disabled = true;
@@ -116,10 +108,8 @@ function checkPassword() {
 
     // AINDA TEM TENTATIVAS
 
-    resultado.innerHTML = `
-        <p style="color: red;">
+    resultado.textContent = `
             ❌ Senha incorreta!
-        </p>
     `;
     campoSenha.value = "";
     campoSenha.focus();
@@ -130,13 +120,11 @@ function checkPassword() {
 function adicionarHistorico(palavra, acertou) {
     const item = document.createElement("li");
     if (acertou) {
-        item.innerHTML = `
-            <strong style="color: green;">
+        item.textContent = `
                 ${palavra} - Correto! ✅
-            </strong>
         `;
     } else {
-        item.innerHTML = `
+        item.textContent = `
             ${palavra} - Incorreto ❌
         `;
     }
@@ -161,29 +149,24 @@ function showHint() {
 
     if (dica) {
 
-        elementoDica.innerHTML = `
-            💡 <strong>Dica:</strong> ${dica}
+        elementoDica.textContent = `
+            💡 Dica: ${dica}
         `;
 
     } else {
 
-        elementoDica.innerHTML = `
+        elementoDica.textContent = `
             💡 Tente descobrir a palavra!
         `;
     }
 }
 
-
-// ===============================
 // ENTER PARA TENTAR
-// ===============================
 
 campoSenha.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
-
         event.preventDefault();
-
         checkPassword();
     }
 });

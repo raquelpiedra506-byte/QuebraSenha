@@ -204,3 +204,15 @@ header a img{
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.respBox {
+    font-size: 30px;
+    text-shadow: 2px 2px 4px #000000;
+    display: block;
+    justify-content: center;
+    align-items:center;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+    color: #ffffff;
+}
